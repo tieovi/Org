@@ -1,0 +1,96 @@
+#+TITLE: eCPRI
+#+AUTHOR: Vu Tien Luan
+#+OPTIONS: H:2 toc:t num:t
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [presentation]
+#+BEAMER_THEME: CambridgeUS
+#+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col)
+
+* Introduction
+
+** extend Common Public Radio Interface
+
+*** Motivation
+	Decrease the data rate demand between eREC and eRE a flexible functional decomposition while limiting the complexity of the eRE.
+
+*** Scope
+	* The internal radio base station interface establishing a connection between eRE and eREC
+	* Support 3 flows: eCPRI User Plane data, C&M Plane data, and Synchronization Plane data
+	* Defines a new eCPRI Layer above the Transport Network Layer while existing standards are used for the transport network layer, C&M and Synchronization.
+
+** extend Common Public Radio Interface(cont.)
+   :PROPERTIES:
+   :ID:       e065bfd3-c5b8-4dbf-bd75-f8e63ad8bd46
+   :END:
+*** System and Interface Definition
+	:PROPERTIES:
+	:ID:       d77c1f99-d7f1-4ec7-bb1c-c6f91a0072af
+	:END:
+	Between eREC and eRE
+	[[file:data/d7/7c1f99-d7f1-4ec7-bb1c-c6f91a0072af/screenshot-20191219-172542.png]]
+
+*** System and Interface Definition with eCPRI/CPRI IWF type 0
+	:PROPERTIES:
+	:ID:       991becca-668a-4874-9f75-4687371c1a98
+	:END:
+	[[file:data/99/1becca-668a-4874-9f75-4687371c1a98/screenshot-20191219-172845.png]]
+
+** extend Common Public Radio Interface(cont.)
+*** System and Interface Definition with eCPRI/CPRI IWF type 1/type 2
+	:PROPERTIES:
+	:ID:       5192a5d6-4d1c-4610-9c07-6a39636bf9b0
+	:END:
+	[[file:data/51/92a5d6-4d1c-4610-9c07-6a39636bf9b0/screenshot-20191219-173111.png]]
+
+* System Description
+
+** Definition/Nonmenclature
+
+*** eCPRI Node:
+	* eREC(Radio Equiqment Control)
+	* eRE(Radio Equiqment)
+
+*** Protocol Plane:
+   * C&M Plane: Control and Management flow for the operation, adminstration of the node, maintainance of the node
+   * User plane: Data flow, Realtime Control, other eCPRI.
+   * Synchronization Plane: Data flow for sync & timing information between nodes.
+
+*** eCPRI Protocol Layer:
+	A Protocol Layer defined by this specification and providing specific services to the upper layers.
+
+** Definition/Nonmenclature(cont.)
+
+*** Service Access Point
+	Use for all protocol planes: SAP_{CM}, SAP_{S}, SAP_{U}
+
+*** Logical connection
+	Interconnection between SAPs (e.g., SAP_{U}) across peered eCPRI nodes
+
+*** Grandmaster Clock (GM)
+	Reference clock of a Precision Time Protocol-based Transport network
+
+*** Uplink
+	Direction from eNB/gNB to UE.
+
+*** Downlink
+	Direction from UE to eNB/gNB.
+
+*** Service:
+	:PROPERTIES:
+	:ID:       1078c1b9-a0f9-4e98-ae3e-402922e7f6c3
+	:END:
+	Method to access one or more functionalities via the eCPRI protocol. This method typically involves the	transmission/reception of eCPRI messages.
+
+	[[file:data/10/78c1b9-a0f9-4e98-ae3e-402922e7f6c3/screenshot-20191219-180305.png]]
+
+** Definition/Nonmenclature(cont.)
+
+*** eCPRI/CPRI Interworking Function (IWF)
+	A function providing a bridge between eCPRI and CPRI nodes. There are 3 type of IWFs
+	* Type 0: eREC - Fronthaul - *IWF type 0* - RE
+	* Type 1: REC - *IWF type 1* - Fronthaul - IWF type 2 - RE
+	* Type 2: REC - IWF type 1 - Fronthaul - *IWF type 2* - RE
+
+*** TODO CPRI master port for IWF type 0:
+*** TODO CPRI slave port for IWF type 1:
+*** TODO CPRI slave port for IWF type 2:
