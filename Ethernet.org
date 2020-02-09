@@ -1,0 +1,28 @@
+#+TITLE: This is the title of the document
+
+* Relationship of 25GBASE-R to other standard
+  Same as 10GBASE-R except that
+
+** single-bit IF to PMA rather 16-bit IF
+** ability to generate  the scramble idle test pattern
+** hi_ber if berr_cnt reachs 97 in a 2ms period
+
+* Summary of 25BASE-R sublayers
+  :PROPERTIES:
+  :ID:       50474156-e6f4-4f28-a73f-be776e747c49
+  :END:
+  [[file:data/50/474156-e6f4-4f28-a73f-be776e747c49/screenshot-20191218-231158.png]]
+
+  Operate with frequency of 390.625 MHz
+
+  The 25BASE-R PCS provide all service required by 25GMII
+
+* About reading statistic counters
+
+** Reading these register require one of following condition:
+*** input pm_tick = 1 when MODE_REG[30] = 0
+*** register TICK_REG = 1 when MODE_REG[30] = 1 (default)
+
+** Flow require to read stat register (Rx, Tx)
+*** Write 1 to register MODE_REG[30] (default)
+*** Write 1 to register TICK_REG[0] (ADR=0020)
