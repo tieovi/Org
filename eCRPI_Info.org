@@ -1,0 +1,14 @@
+* Ethernet 25G
+** Debug signal
+
+   // Status Register
+   CORE_SPEED_REG       0x18C           25 Ethernet speed
+   STAT_RX_BLOCK_LOCK   0x040C          PCS lane has achieved a block lock as
+   STAT_RX_BAD_FCS      0x08C0, 0x08C4  An badd FCS error could be due to any number of causes of packet corruption such as noise on the line.
+   STAT_TX_STATUS_REG1  0x0400          25G Ethernet Tx path status
+   STAT_RX_STATUS_REG1  0x0404          25G Ethernet Rx path status
+   STAT_STATUS_REG1     0x0408          25G Ethernet FIFO & PTP Sync status
+
+   // Reset register
+   GT_RESET_REG         0x0000          Gigabit Transceiver reset
+   RESET_REG            0x0004          Ethernet Core reset
