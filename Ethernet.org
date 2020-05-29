@@ -26,3 +26,19 @@
 ** Flow require to read stat register (Rx, Tx)
 *** Write 1 to register MODE_REG[30] (default)
 *** Write 1 to register TICK_REG[0] (ADR=0020)
+* Edit .PCAP files using Vim
+  add following lines to ~/.vimrc
+
+  " vim -b : edit binary using xxd-format!
+  augroup Binary
+  au!
+  au BufReadPre  *.pcap let &bin=1
+  au BufReadPost *.pcap if &bin | %!xxd
+  au BufReadPost *.pcap set ft=xxd | endif
+  au BufWritePre *.pcap if &bin | %!xxd -r
+  au BufWritePre *.pcap endif
+  au BufWritePost *.pcap if &bin | %!xxd
+  au BufWritePost *.pcap set nomod | endif
+  augroup END
+
+  edit as normal files
