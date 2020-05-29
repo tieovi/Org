@@ -26,6 +26,7 @@
 ** Flow require to read stat register (Rx, Tx)
 *** Write 1 to register MODE_REG[30] (default)
 *** Write 1 to register TICK_REG[0] (ADR=0020)
+<<<<<<< HEAD
 * Edit .PCAP files using Vim
   add following lines to ~/.vimrc
 
@@ -42,3 +43,5 @@
   augroup END
 
   edit as normal files
+=======
+>>>>>>> 52b982ef2441e048396d51ae20a91d37d192d55c
